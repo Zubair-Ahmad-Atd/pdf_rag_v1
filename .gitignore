@@ -1,0 +1,18 @@
+
+#General 
+__pycache__/
+*.log
+
+# Virtual Environment
+.venv/
+
+
+# Environment Variable
+.env
+
+# Vector DB
+chroma_bd/
+
+#chainlit
+.chainlit/
+
