@@ -15,4 +15,5 @@ chroma_bd/
 
 #chainlit
 .chainlit/
+git status
 
