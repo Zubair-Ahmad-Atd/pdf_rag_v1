@@ -15,7 +15,8 @@ from langchain_google_genai import (
     ChatGoogleGenerativeAI
 )
 
-from langchain_community.vectorstores import Chroma
+# from langchain_community.vectorstores import Chroma
+from langchain_chroma import Chroma
 
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnablePassthrough
@@ -33,7 +34,7 @@ async def start():
     files = await cl.AskFileMessage(
         content="Please upload a PDF file",
         accept=["application/pdf"],
-        max_size_mb=100
+        max_size_mb=30
     ).send()
 
     file = files[0]
