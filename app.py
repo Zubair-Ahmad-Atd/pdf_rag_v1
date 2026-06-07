@@ -29,10 +29,9 @@ from langchain_core.output_parsers import StrOutputParser
 
 @cl.on_chat_start
 async def start():
-    api_key = os.getenv("GOOGLE_API_KEY")
     # Ask user to upload PDF
     files = await cl.AskFileMessage(
-        content=f"""Please upload a PDF file and api key is : {api_key[:5]}""",
+        content="Please upload a PDF file",
         accept=["application/pdf"],
         max_size_mb=30
     ).send()
@@ -60,19 +59,6 @@ async def start():
     )
 
     chunks = splitter.split_documents(documents)
-
-
-    #==================================
-    # VERIFICATION API IS LOADED OR NOT
-    #==================================
-
-    api_key = os.getenv("GOOGLE_API_KEY")
-
-    print("API Key Found:", api_key is not None)
-
-    if api_key:
-        print("API Key Length:", len(api_key))
-        print("API Key Starts With:", api_key[:5])
 
     # ==========================
     # EMBEDDINGS
