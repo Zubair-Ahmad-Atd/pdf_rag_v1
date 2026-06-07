@@ -61,6 +61,19 @@ async def start():
 
     chunks = splitter.split_documents(documents)
 
+
+    #==================================
+    # VERIFICATION API IS LOADED OR NOT
+    #==================================
+
+    api_key = os.getenv("GOOGLE_API_KEY")
+
+    print("API Key Found:", api_key is not None)
+
+    if api_key:
+        print("API Key Length:", len(api_key))
+        print("API Key Starts With:", api_key[:5])
+
     # ==========================
     # EMBEDDINGS
     # ==========================
@@ -70,7 +83,7 @@ async def start():
     # )
     embeddings = GoogleGenerativeAIEmbeddings(
     model="models/gemini-embedding-2",
-    google_api_key="GOOGLE_API_KEY"
+    # google_api_key="GOOGLE_API_KEY"
 )
 
 
