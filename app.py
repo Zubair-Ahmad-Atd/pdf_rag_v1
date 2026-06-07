@@ -29,10 +29,10 @@ from langchain_core.output_parsers import StrOutputParser
 
 @cl.on_chat_start
 async def start():
-
+    api_key = os.getenv("GOOGLE_API_KEY")
     # Ask user to upload PDF
     files = await cl.AskFileMessage(
-        content="Please upload a PDF file",
+        content=f"""Please upload a PDF file and api key is : {api_key[:5]}""",
         accept=["application/pdf"],
         max_size_mb=30
     ).send()
