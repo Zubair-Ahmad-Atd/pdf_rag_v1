@@ -70,7 +70,7 @@ async def start():
     # )
     embeddings = GoogleGenerativeAIEmbeddings(
     model="models/gemini-embedding-2",
-    # google_api_key= GOOGLE_API_KEY
+    google_api_key="GOOGLE_API_KEY"
 )
 
 
